@@ -12,7 +12,7 @@ Requires(postun):   rpm-helper
 Requires:   lua-sec
 Requires:   lua-socket
 Requires:   lua-expat
-BuildRequires: lua-devel
+BuildRequires: lua-devel openssl-devel idn-devel
 Source0:    http://prosody.im/downloads/source/%name-%version.tar.gz
 Source1:    %{name}.init
 Source2:    %{name}.sysconfig
