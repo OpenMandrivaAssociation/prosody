@@ -1,5 +1,5 @@
 Name:       prosody
-Version:    0.4.0
+Version:    0.4.2
 Release:    %mkrel 1
 Summary:    Light Lua Jabber/XMPP server
 URL:        http://prosody.im/
@@ -47,15 +47,22 @@ cat %{SOURCE2} > ${RPM_BUILD_ROOT}%{_sysconfdir}/sysconfig/%{name}
 cat %{SOURCE3} > ${RPM_BUILD_ROOT}%{_sysconfdir}/%{name}/%{name}.cfg.lua 
 
 mkdir -p $RPM_BUILD_ROOT/%_localstatedir/lib/%{name}
- 
+mkdir -p $RPM_BUILD_ROOT/%_var/run/%name/
+
 %clean
 rm -rf ${RPM_BUILD_ROOT}
+
+%pre
+%_pre_useradd %{name} /var/empty /bin/true
 
 %post
 %_post_service %{name}
 
 %preun
 %_preun_service %{name}
+
+%postun 
+%_postun_userdel %{name}
 
 %files
 %defattr(-,root,root)
@@ -64,5 +71,8 @@ rm -rf ${RPM_BUILD_ROOT}
 %config(noreplace) %_sysconfdir/sysconfig/%name
 %attr(755,root,root) %config(noreplace) %_initrddir/%name
 %_localstatedir/lib/%{name}
+%_bindir/%{name}ctl
 %_bindir/%name
 %_prefix/lib/%name
+%attr(-,%name,%name) %_var/run/%name/
+
