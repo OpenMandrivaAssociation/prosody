@@ -53,7 +53,7 @@ mkdir -p $RPM_BUILD_ROOT/%_var/run/%name/
 rm -rf ${RPM_BUILD_ROOT}
 
 %pre
-%_pre_useradd %{name} /var/empty /bin/true
+%_pre_useradd %{name} /var/empty /bin/bash
 
 %post
 %_post_service %{name}
