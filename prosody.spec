@@ -70,7 +70,7 @@ rm -rf ${RPM_BUILD_ROOT}
 %config(noreplace) %_sysconfdir/%name/
 %config(noreplace) %_sysconfdir/sysconfig/%name
 %attr(755,root,root) %config(noreplace) %_initrddir/%name
-%_localstatedir/lib/%{name}
+%attr(700,%name,%name) %_localstatedir/lib/%{name}
 %_bindir/%{name}ctl
 %_bindir/%name
 %_prefix/lib/%name
