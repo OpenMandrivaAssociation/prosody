@@ -1,6 +1,6 @@
 Name:       prosody
-Version:    0.4.2
-Release:    %mkrel 2
+Version:    0.5.0
+Release:    %mkrel 1
 Summary:    Light Lua Jabber/XMPP server
 URL:        http://prosody.im/
 Group:      System/Servers
@@ -75,4 +75,5 @@ rm -rf ${RPM_BUILD_ROOT}
 %_bindir/%name
 %_prefix/lib/%name
 %attr(-,%name,%name) %_var/run/%name/
+%_mandir/man1/%{name}ctl.*
 
