@@ -1,5 +1,5 @@
 Name:       prosody
-Version:    0.5.0
+Version:    0.5.1
 Release:    %mkrel 1
 Summary:    Light Lua Jabber/XMPP server
 URL:        http://prosody.im/
