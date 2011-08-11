@@ -1,5 +1,5 @@
 Name:       prosody
-Version:    0.7.0
+Version:    0.8.2
 Release:    %mkrel 1
 Summary:    Light Lua Jabber/XMPP server
 URL:        http://prosody.im/
@@ -12,6 +12,7 @@ Requires(postun):   rpm-helper
 Requires:   lua-sec
 Requires:   lua-socket
 Requires:   lua-expat
+Requires:   lua-filesystem
 BuildRequires: lua-devel openssl-devel idn-devel
 Source0:    http://prosody.im/downloads/source/%name-%version.tar.gz
 Source1:    %{name}.init
