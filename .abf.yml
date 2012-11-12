@@ -1,0 +1,5 @@
+sources:
+  "prosody-0.8.2.tar.gz:"	a029c4e69f6daaf3320061e69c9f86390d7e845a
+  "prosody.config:"	9afa58dbd6e71f1061cfbbe022a2f79b51c12a7d
+  "prosody.init:"	020ce7646689f878a15c4f199dfcbbb350613d56
+  "prosody.sysconfig:"	f4923ad2c0357737552ef132f32bc16e034115bf
