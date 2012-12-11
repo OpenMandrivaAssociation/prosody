@@ -1,0 +1,85 @@
+#!/bin/bash
+#
+#prosody    A small jabber server
+#
+# chkconfig: 2345 90 10
+# description: Small Jabber server
+### BEGIN INIT INFO
+# Provides: prosody
+# Should-Start: $network
+# Should-Stop: $network
+# Default-Start: 2 3 4 5
+# Short-Description: The prosody small XMPP/Jabber server
+# Description: The prosody small XMPP/Jabber server
+### END INIT INFO
+
+# Source function library.
+. /etc/rc.d/init.d/functions
+
+DAEMON_NAME=prosody
+DAEMON_PROCESS=$DAEMON_NAME
+DAEMON_BINARY=$DAEMON_NAME
+LOCK_FILE=/var/lock/subsys/$DAEMON_NAME
+RETVAL=0
+PID_FILE=/var/run/$DAEMON_NAME/$DAEMON_NAME.pid
+
+[ -f /etc/sysconfig/$DAEMON_NAME ] && . /etc/sysconfig/$DAEMON_NAME
+
+
+start() {
+    [ -f $LOCK_FILE ] && return
+
+    echo -n "Starting $DAEMON_NAME: "
+    # use --user to run the daemon under the specified uid
+    daemon --user $DAEMON_NAME $DAEMON_BINARY
+    RETVAL=$?
+    echo
+    [ $RETVAL -eq 0 ] && touch $LOCK_FILE
+}
+
+stop() {
+    echo -n "Shutting down $DAEMON_NAME: "
+    killproc -p $PID_FILE lua 
+    RETVAL=$?
+    echo
+    [ $RETVAL -eq 0 ] && rm -f $LOCK_FILE
+}
+
+reload() {
+    echo -n "Reloading $DAEMON_NAME configuration: "
+    killproc -p $PID_FILE lua SIGHUP
+    RETVAL=$?
+    echo
+}
+
+case "$1" in
+    start)
+        start
+        ;;
+    stop)
+        stop
+        ;;
+    status)
+        status -p $PID_FILE lua
+        RETVAL=$?
+        ;;
+    reload)
+        reload
+        ;;
+    restart)
+        stop
+        start
+        ;;
+    condrestart)
+        if [ -f $LOCK_FILE ]; then
+            stop
+            start
+        fi
+        ;;
+    *)
+        echo "Usage: $0 {start|stop|restart|reload|condrestart|status}"
+        RETVAL=1
+esac
+
+exit $RETVAL
+

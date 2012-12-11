@@ -78,3 +78,63 @@ rm -rf ${RPM_BUILD_ROOT}
 %attr(-,%name,%name) %_var/run/%name/
 %_mandir/man1/%{name}ctl.*
 
+
+
+%changelog
+* Fri Aug 12 2011 Michael Scherer <misc@mandriva.org> 0.8.2-1mdv2012.0
++ Revision: 694065
+- new version 0.8.2
+
+* Tue Jul 20 2010 Michael Scherer <misc@mandriva.org> 0.7.0-1mdv2011.0
++ Revision: 555132
+- update to new version 0.7.0
+
+* Mon Apr 19 2010 Sandro Cazzaniga <kharec@mandriva.org> 0.6.2-1mdv2010.1
++ Revision: 536825
+- update to 0.6.2
+
+* Tue Apr 13 2010 Funda Wang <fwang@mandriva.org> 0.6.1-2mdv2010.1
++ Revision: 534502
+- rebuild
+
+* Thu Nov 26 2009 Michael Scherer <misc@mandriva.org> 0.6.1-1mdv2010.1
++ Revision: 470310
+- update to new version 0.6.1
+
+* Wed Nov 25 2009 Michael Scherer <misc@mandriva.org> 0.6.0-1mdv2010.1
++ Revision: 470011
+- update to new version 0.6.0
+
+* Tue Sep 29 2009 Michael Scherer <misc@mandriva.org> 0.5.2-1mdv2010.0
++ Revision: 450816
+- update to new version 0.5.2
+
+* Thu Jul 30 2009 Frederik Himpe <fhimpe@mandriva.org> 0.5.1-1mdv2010.0
++ Revision: 404692
+- update to new version 0.5.1
+
+* Sat Jul 25 2009 Michael Scherer <misc@mandriva.org> 0.5.0-1mdv2010.0
++ Revision: 399845
+- update to 0.5.0
+
+* Sat Jul 18 2009 Michael Scherer <misc@mandriva.org> 0.4.2-2mdv2010.0
++ Revision: 397126
+- fix directory ownership
+
+* Sat Jul 18 2009 Michael Scherer <misc@mandriva.org> 0.4.2-1mdv2010.0
++ Revision: 396967
+- give a proper shell to prosody user
+- new version 0.4.2
+- no longer run as root
+
+* Sat May 02 2009 Michael Scherer <misc@mandriva.org> 0.4.0-1mdv2010.0
++ Revision: 370410
+- fix again BuildRequires
+- add BuildRequires
+- remove logrotate, and use syslog, prosody do not have support for reloading the file
+- adapt initscript
+- fix the specfile
+- add a default configfile
+- import prosody
+
+
