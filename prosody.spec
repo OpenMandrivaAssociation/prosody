@@ -4,7 +4,7 @@ Name:       prosody
 Version:    0.8.2
 Release:    3
 Summary:    Light Lua Jabber/XMPP server
-URL:        http://prosody.im/
+URL:        https://prosody.im/
 Group:      System/Servers
 License:    MIT
 Requires(pre):  rpm-helper
